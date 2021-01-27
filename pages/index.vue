@@ -28,7 +28,39 @@
 </template>
 
 <script>
-export default {}
+import { Auth, Course, Member } from '@/apis';
+
+export default {
+  created() {
+    this.login();
+    this.getCourses();
+    this.getMember();
+  },
+  methods: {
+    async login() {
+      console.log('login');
+      const data = await Auth.login();
+
+      if (process.browser) {
+        localStorage.setItem('token', data.access_token);
+      }
+      console.log(data);
+      console.log('----------');
+    },
+    async getCourses() {
+      console.log('course');
+      const data = await Course.getCourses();
+      console.log(data);
+      console.log('----------');
+    },
+    async getMember() {
+      console.log('member');
+      const data = await Member.getUser();
+      console.log(data);
+      console.log('----------');
+    },
+  },
+}
 </script>
 
 <style>
