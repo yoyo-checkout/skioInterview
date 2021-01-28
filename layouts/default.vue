@@ -32,8 +32,12 @@ export default {
 
     &__container {
       margin: 60px 0 0;
-      padding: 3rem;
+      padding: .5rem;
       min-height: calc(100vh - 120px);
+
+      @include rwd($device-tablet) {
+        padding: 3rem;
+      }
     }
   }
 </style>
