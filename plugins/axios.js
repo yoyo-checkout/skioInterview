@@ -22,6 +22,16 @@ export default function ({ $axios }, inject) {
 
   // handle response
   $axios.onResponse((response) => {
+    if (response.status === 401 || response.status === 403) {
+      if (process.browser) {
+        window.localStorage.setItem('token', '');
+        window.localStorage.setItem('expires', '');
+        window.location.href = '/';
+      } else {
+        return Promise.reject(new Error('error'));
+      }
+    }
+
     if (response.status !== 200) {
       return Promise.reject(new Error('error'));
     }

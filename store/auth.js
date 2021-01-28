@@ -12,7 +12,10 @@ const actions = {
 
       if (res) {
         if (process.browser) {
+          const now = new Date();
+
           window.localStorage.setItem('token', res.access_token);
+          window.localStorage.setItem('expires', new Date(now.setDate(now.getDate() + 7)));
           window.location.href = '/account';
         }
       }

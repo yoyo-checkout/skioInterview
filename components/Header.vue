@@ -18,6 +18,7 @@ export default {
     logout() {
       if (process.browser) {
         window.localStorage.setItem('token', '');
+        window.localStorage.setItem('expires', '');
         window.location.href = '/';
       }
     },

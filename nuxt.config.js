@@ -27,7 +27,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/axios.js'
+    '~/plugins/axios.js',
+    '~/plugins/auth.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -60,5 +61,5 @@ export default {
       '@/assets/helpers/_mixins.scss',
       '@/assets/helpers/_variables.scss',
     ]
-  }
+  },
 }
