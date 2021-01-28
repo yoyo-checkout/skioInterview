@@ -1,5 +1,11 @@
 <template>
   <header class="header">
+    <nuxt-link v-if="this.$route.name === 'account'" to="/courses" class="button">
+      課程
+    </nuxt-link>
+    <nuxt-link v-if="this.$route.name === 'courses'" to="/account" class="button">
+      用戶
+    </nuxt-link>
     <button type="button" class="button logout-button" @click="logout">
       登出
     </button>
