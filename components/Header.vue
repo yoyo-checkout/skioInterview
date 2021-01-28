@@ -1,8 +1,23 @@
 <template>
   <header class="header">
-    this is header component
+    <button type="button" class="button logout-button" @click="logout">
+      登出
+    </button>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      if (process.browser) {
+        window.localStorage.setItem('token', '');
+        window.location.href = '/';
+      }
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
   .header {
@@ -18,5 +33,9 @@
     left: 0;
     height: 60px;
     z-index: 999;
+
+    .logout-button {
+      margin: 0 0 0 auto;
+    }
   }
 </style>

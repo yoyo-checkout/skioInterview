@@ -6,7 +6,12 @@ export const init = (axiosInstance) => {
 
 export const Auth = {
   login: (payload) => {
-    return $axios.post('/auth/login');
+    const { account, password } = payload.form;
+
+    return $axios.post('/auth/login', {
+      account,
+      password,
+    });
   },
 }
 

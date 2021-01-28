@@ -7,16 +7,16 @@
     <form class="form">
       <div class="form-item">
         <label class="label">帳號</label>
-        <input class="input" type="text" autocomplete="off" placeholder="請輸入帳號">
+        <input v-model="form.account" class="input" type="text" autocomplete="off" placeholder="請輸入帳號">
       </div>
       <div class="form-item">
         <label class="label">密碼</label>
-        <input class="input" type="password" autocomplete="off" placeholder="請輸入密碼">
+        <input v-model="form.password" class="input" type="password" autocomplete="off" placeholder="請輸入密碼">
       </div>
     </form>
 
     <div class="login-button">
-      <button type="button" class="button">
+      <button type="button" class="button" @click="login">
         登入
       </button>
     </div>
@@ -24,37 +24,27 @@
 </template>
 
 <script>
-import { Auth, Course, Member } from '@/apis';
+import { mapActions } from 'vuex';
 
 export default {
   layout: 'login',
-  created() {
-    this.login();
-    this.getCourses();
-    this.getMember();
+  data() {
+    return {
+      form: {
+        account: '',
+        password: '',
+      },
+    };
   },
   methods: {
-    async login() {
-      console.log('login');
-      const data = await Auth.login();
+    ...mapActions('auth', [
+      'doLogin',
+    ]),
 
-      if (process.browser) {
-        localStorage.setItem('token', data.access_token);
-      }
-      console.log(data);
-      console.log('----------');
-    },
-    async getCourses() {
-      console.log('course');
-      const data = await Course.getCourses();
-      console.log(data);
-      console.log('----------');
-    },
-    async getMember() {
-      console.log('member');
-      const data = await Member.getUser();
-      console.log(data);
-      console.log('----------');
+    login() {
+      this.doLogin({
+        form: this.form,
+      });
     },
   },
 }
