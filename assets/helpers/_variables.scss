@@ -1,0 +1,51 @@
+// default color
+$--color-white: #FFFFFF !default;
+$--color-black: #000000 !default;
+
+$--color-primary: #409EFF !default;
+$--color-primary-light: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
+
+$--color-success: #67C23A !default;
+$--color-success-light: mix($--color-white, $--color-success, 80%) !default;
+
+$--color-warning: #E6A23C !default;
+$--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
+
+$--color-danger: #F56C6C !default;
+$--color-danger-light: mix($--color-white, $--color-danger, 80%) !default;
+
+$--color-info: #909399 !default;
+$--color-info-light: mix($--color-white, $--color-info, 80%) !default;
+
+$--color-text-primary: #303133 !default;
+$--color-text-regular: #606266 !default;
+$--color-text-secondary: #909399 !default;
+$--color-text-placeholder: #C0C4CC !default;
+
+
+// button color
+$--button-primary-border-color: $--color-primary !default;
+$--button-primary-font-color: $--color-white !default;
+$--button-primary-background-color: $--color-primary !default;
+
+$--button-success-border-color: $--color-success !default;
+$--button-success-font-color: $--color-white !default;
+$--button-success-background-color: $--color-success !default;
+
+$--button-warning-border-color: $--color-warning !default;
+$--button-warning-font-color: $--color-white !default;
+$--button-warning-background-color: $--color-warning !default;
+
+$--button-danger-border-color: $--color-danger !default;
+$--button-danger-font-color: $--color-white !default;
+$--button-danger-background-color: $--color-danger !default;
+
+
+// box shadow
+$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+
+
+// break points
+$device-desktop: 992px;
+$device-tablet: 768px;
+$device-small-mobile: 576px;
