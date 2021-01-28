@@ -4,7 +4,7 @@
       登入
     </h1>
 
-    <form class="form">
+    <form class="form" @keyup.enter.prevent="login">
       <div class="form-item">
         <label class="label">帳號</label>
         <input v-model="form.account" class="input" type="text" autocomplete="off" placeholder="請輸入帳號">
@@ -13,6 +13,7 @@
         <label class="label">密碼</label>
         <input v-model="form.password" class="input" type="password" autocomplete="off" placeholder="請輸入密碼">
       </div>
+      <small v-show="warningShow" class="warning-txt">請確認格式</small>
     </form>
 
     <div class="login-button">
@@ -34,6 +35,7 @@ export default {
         account: '',
         password: '',
       },
+      warningShow: false,
     };
   },
   methods: {
@@ -42,6 +44,11 @@ export default {
     ]),
 
     login() {
+      if (!this.form.account || !this.form.password) {
+        this.warningShow = true;
+        return;
+      }
+
       this.doLogin({
         form: this.form,
       });
@@ -51,6 +58,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .warning-txt {
+    color: red;
+  }
+
   .login-button {
     text-align: center;
   }
