@@ -8,12 +8,13 @@ const state = () => {
 };
 
 const actions = {
-  async getCourses({ commit }, payload) {
+  async getCourses({ commit, state }) {
     try {
-      const res = await Course.fetchCourses(payload);
+      const res = await Course.fetchCourses({ meta: state.meta });
 
       if (res) {
         commit('SET_COURSES', res.data);
+        commit('SET_META', res.meta);
       }
     } catch (error) {
       alert('系統繁忙中，請稍後再試');
@@ -23,7 +24,13 @@ const actions = {
 
 const mutations = {
   SET_COURSES(state, list) {
-    state.courses = list;
+    state.courses = [
+      ...state.courses,
+      ...list,
+    ];
+  },
+  SET_META(state, meta) {
+    state.meta = meta;
   },
 };
 

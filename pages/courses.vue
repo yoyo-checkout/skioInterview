@@ -32,21 +32,44 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
   computed: {
     ...mapState('course', {
       courses: state => state.courses,
+      meta: state => state.meta,
     }),
   },
   created() {
     this.getCourses();
   },
+  mounted() {
+    window.addEventListener('scroll', () => this.handleScroll());
+  },
   methods: {
     ...mapActions('course', [
       'getCourses',
     ]),
+    ...mapMutations('course', [
+      'SET_META',
+    ]),
+
+    handleScroll() {
+      const { clientHeight } = document.body;
+      const { scrollY, innerHeight } = window;
+
+      if (scrollY + innerHeight >= clientHeight) {
+        this.SET_META({
+          ...this.meta,
+          current_page: this.meta.current_page ? this.meta.current_page + 1 : 1,
+        });
+        this.getCourses();
+      }
+    },
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll());
   },
 };
 </script>

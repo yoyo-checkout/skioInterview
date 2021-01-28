@@ -17,7 +17,13 @@ export const Auth = {
 
 export const Course = {
   fetchCourses: (payload) => {
-    return $axios.get('/courses');
+    const page = payload.meta.current_page ? payload.meta.current_page : 1;
+
+    return $axios.get('/courses', {
+      params: {
+        page,
+      },
+    });
   },
 }
 
