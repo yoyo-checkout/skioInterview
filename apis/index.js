@@ -16,13 +16,13 @@ export const Auth = {
 }
 
 export const Course = {
-  getCourses: (payload) => {
+  fetchCourses: (payload) => {
     return $axios.get('/courses');
   },
 }
 
 export const Member = {
-  getUser: () => {
+  fetchUser: () => {
     return $axios.get('/me');
   },
 }

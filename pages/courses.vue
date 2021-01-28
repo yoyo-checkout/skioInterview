@@ -32,108 +32,21 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
-  data() {
-    return {
-      courses: [
-        {
-          id: 1,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 2,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 3,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 4,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 5,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 6,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 7,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        },
-        {
-          id: 8,
-          title: '工程師學理財 | 基金戰場投資指南 (預購中)',
-          image: 'https://fakeimg.pl/230x138/',
-          lecturers: [
-            {
-              username: 'Tony'
-            }
-          ],
-          feedback_score: 100,
-          students: 10
-        }
-      ],
-    };
+  computed: {
+    ...mapState('course', {
+      courses: state => state.courses,
+    }),
+  },
+  created() {
+    this.getCourses();
+  },
+  methods: {
+    ...mapActions('course', [
+      'getCourses',
+    ]),
   },
 };
 </script>
@@ -143,7 +56,7 @@ export default {
     &__container {
       display: flex;
       flex-flow: row wrap;
-      margin: 0;
+      margin: 0 0 100px;
       padding: 0;
       width: 100%;
       list-style: none;
