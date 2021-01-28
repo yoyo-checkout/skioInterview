@@ -32,6 +32,7 @@ export default {
 
     &__container {
       margin: 60px 0 0;
+      padding: 3rem;
       min-height: calc(100vh - 120px);
     }
   }

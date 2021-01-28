@@ -1,5 +1,7 @@
 <template>
-  <header class="header">this is header component</header>
+  <header class="header">
+    this is header component
+  </header>
 </template>
 
 <style lang="scss" scoped>

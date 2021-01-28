@@ -1,5 +1,7 @@
 <template>
-  <footer class="footer">this is footer component</footer>
+  <footer class="footer">
+    this is footer component
+  </footer>
 </template>
 
 <style lang="scss" scoped>
