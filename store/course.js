@@ -3,7 +3,9 @@ import { Course } from '@/apis';
 const state = () => {
   return {
     courses: [],
-    meta: {},
+    meta: {
+      current_page: 1,
+    },
   };
 };
 
@@ -14,7 +16,6 @@ const actions = {
 
       if (res) {
         commit('SET_COURSES', res.data);
-        commit('SET_META', res.meta);
       }
     } catch (error) {
       alert('系統繁忙中，請稍後再試');
@@ -29,8 +30,8 @@ const mutations = {
       ...list,
     ];
   },
-  SET_META(state, meta) {
-    state.meta = meta;
+  SET_META(state) {
+    state.meta.current_page = state.meta.current_page + 1;
   },
 };
 

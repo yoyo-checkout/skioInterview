@@ -1,8 +1,8 @@
 <template>
   <ul class="cards__container">
     <li
-      v-for="course in courses"
-      :key="course.id"
+      v-for="(course, i) in courses"
+      :key="i"
       class="cards__item"
     >
       <div class="image-container">
@@ -59,14 +59,13 @@ export default {
     ]),
 
     handleScroll() {
+      if (this.meta.current_page === 8) return;
+
       const { clientHeight } = document.body;
       const { scrollY, innerHeight } = window;
 
       if (scrollY + innerHeight >= clientHeight) {
-        this.SET_META({
-          ...this.meta,
-          current_page: this.meta.current_page ? this.meta.current_page + 1 : 1,
-        });
+        this.SET_META();
         this.getCourses();
       }
     },
