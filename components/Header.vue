@@ -30,15 +30,14 @@ export default {
   .header {
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 0 6px rgb(0 0 0 / 12%);
-
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
+    padding: 0 10px;
     height: 60px;
+    background-color: $--header-background-color;
+    box-shadow: $--box-shadow-base;
     z-index: 999;
 
     .logout-button {

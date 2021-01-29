@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
   .warning-txt {
-    color: red;
+    color: $--color-danger;
   }
 
   .login-button {

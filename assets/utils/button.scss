@@ -1,19 +1,19 @@
 .button {
   white-space: nowrap;
-  background: #FFF;
-  border: 1px solid #DCDFE6;
-  color: #606266;
-  -webkit-appearance: none;
+  background: $--button-background-color;
+  border: 1px solid $--button-border-color;
+  color: $--button-font-color;
+  appearance: none;
   font-weight: 500;
   padding: 12px 20px;
   border-radius: 4px;
   cursor: pointer;
   outline: 0;
   text-decoration: none;
+  transition: all .3s;
 
   &:hover {
-    color: #409EFF;
-    border-color: #c6e2ff;
-    background-color: #ecf5ff;
+    color: $--button-hover-font-color;
+    background-color: $--button-hover-background-color;
   }
 }

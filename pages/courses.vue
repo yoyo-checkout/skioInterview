@@ -47,6 +47,9 @@ export default {
   mounted() {
     window.addEventListener('scroll', () => this.handleScroll());
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll());
+  },
   methods: {
     ...mapActions('course', [
       'getCourses',
@@ -67,9 +70,6 @@ export default {
         this.getCourses();
       }
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll());
   },
 };
 </script>
@@ -94,11 +94,11 @@ export default {
       cursor: pointer;
 
       &:hover {
-        background-color: #f8f9fa;
+        background-color: mix($--color-white, $--color-text-secondary, 90%);
 
         .image-container {
           .image {
-            transform: scale(1.05);
+            transform: scale(1.1);
           }
         }
       }
@@ -127,7 +127,7 @@ export default {
 
         .lecturer {
           padding: 3px 5px;
-          background-color: #8c939d;
+          background-color: $--color-text-secondary;
           border-radius: 5px;
         }
       }

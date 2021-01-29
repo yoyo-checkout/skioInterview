@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: #8c939d;
+    background-color: $--footer-background-color;
     z-index: 999;
   }
 </style>

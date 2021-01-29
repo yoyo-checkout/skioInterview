@@ -24,21 +24,26 @@ $--color-text-placeholder: #C0C4CC !default;
 
 
 // button color
-$--button-primary-border-color: $--color-primary !default;
-$--button-primary-font-color: $--color-white !default;
-$--button-primary-background-color: $--color-primary !default;
+$--button-border-color: $--color-info !default;
+$--button-font-color: $--color-text-primary !default;
+$--button-background-color: $--color-white !default;
+$--button-hover-font-color: $--color-white !default;
+$--button-hover-background-color: $--color-text-primary !default;
 
-$--button-success-border-color: $--color-success !default;
-$--button-success-font-color: $--color-white !default;
-$--button-success-background-color: $--color-success !default;
 
-$--button-warning-border-color: $--color-warning !default;
-$--button-warning-font-color: $--color-white !default;
-$--button-warning-background-color: $--color-warning !default;
+// input color
+$--input-border-color: $--color-info !default;
+$--input-font-color: $--color-text-primary !default;
+$--input-background-color: $--color-white !default;
 
-$--button-danger-border-color: $--color-danger !default;
-$--button-danger-font-color: $--color-white !default;
-$--button-danger-background-color: $--color-danger !default;
+
+// label color
+$--label-font-color: $--color-text-primary !default;
+
+
+// layout color
+$--header-background-color: $--color-white !default;
+$--footer-background-color: $--color-text-secondary !default;
 
 
 // box shadow
